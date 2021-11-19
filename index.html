@@ -4,18 +4,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="app.css" />
-    <title>Document</title>
+    <title>Symmetry Art</title>
   </head>
   <body>
-    <div>
-      <canvas class="setup canvas" width="600" height="600"></canvas>
-    </div>
-    <input type="button" value="Reset" id="reset" />
 
-    <div>
-      <label for="brush">Choose your brush color:</label>
-      <input type="color" id="color">
+    <h1>SYMMETRY ART.</h1>
+
+    
+    <div id="canvas-container">
+      <canvas class="canvas" width="500" height="500"></canvas>
     </div>
+
+
+    <div id="settings-container">
+        <div>
+            Background:
+            <span class="canvas-bg" data-color="#fff">&nbsp;</span>
+            <span class="canvas-bg" data-color="#000">&nbsp;</span>
+
+            <label for="brush-color">Line: </label>
+            <input type="color" id="brush-color">
+
+            <button id="reset">Reset</button>
+            <button id="psychedelic">Psychedelic</button>
+        </div>
+    </div>
+    
+
+    
     <script src="app.js"></script>
   </body>
 </html>
