@@ -1,63 +1,79 @@
 @import url('https://fonts.googleapis.com/css2?family=Concert+One&family=Montserrat&display=swap');
 
+:root {
+    --primary-color: #474973;
+    --primary-shadow: #474973;
+    --main-bg: #a69cac;
+    --main-text-color: #f1dac4;
+}
+
 * {
     box-sizing: border-box;
 }
 
 body {
     font-family: Concert One;
-    background-color: rgb(211, 182, 219);
+    background-color: var(--main-bg);
+    color: var(--main-text-color);
     min-height: 100vh;
-    /* margin: 0; */
+    position: relative;
+    margin: 0;
 }
 
-h1 {
+body h1 {
     position: relative;
     top: 3px;
-    left: -150px;
     overflow: hidden;
-    /* font-family: Concert One; */
     font-size: 1.5em;
-    /* color: rgb(59, 69, 61); */
-    color: rgb(102, 89, 89);
+    color: var(--primary-color);
     text-align: center;
     margin-bottom: 0;
 }
 
-#canvas-container {
-    display: flex;
+#main {
+    position: relative;
+    left: 30%;
     margin: 0 2em 2em 2em;
 }
 
-#canvas-container .canvas {
+#main .canvas {
     border-radius: 5px;
-    box-shadow: -5px 5px 15px 2px rgb(167, 146, 173);
+    box-shadow: -5px 5px 15px 2px var(--primary-shadow);
     margin: auto;
 }
 
-#settings-container {
+#settings-bottom, #settings-right {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-#settings-container div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(161, 82, 102, 0.3);
-    width: 30em;
+    background-color: var(--primary-color);
     padding: 0.5em;
     border-radius: 20px;
-    box-shadow: -5px 5px 15px 1px rgb(167, 146, 173);
+    box-shadow: -5px 5px 15px 1px var(--primary-shadow);
 }
 
-#settings-container input {
+#settings-right {
+    width: 3em;
+    height: 30em;
+    position: relative;
+    left: 32em;
+    top: -34em;
+}
+
+#settings-bottom {
+    position: relative;
+    top: 1em;
+    left: 0.5em;
+    width: 30em;
+    height: 4em;
+}
+
+#settings-bottom input {
     margin: 5px;
     cursor:pointer;
 }
 
-#settings-container span {
+#settings-bottom span {
     width: 30px;
     height: 30px;
     background-color: black;
@@ -66,25 +82,81 @@ h1 {
     cursor:pointer;
 }
 
-#settings-container button {
+#settings-bottom span:first-child {
+    background-color: white;
+}
+
+#settings-bottom span:hover {
+    border: 3px solid white;
+}
+
+#settings-bottom span:first-child:hover {
+    border: 3px solid black;
+}
+
+#settings-bottom button {
     font-family: Concert One;
     margin: 5px;
     padding: 4px;
-    background-color: white;
-    border-color:rgb(140,145,141);
-    border: 2px solid;
-    border-radius: 4px;
-    color: rgb(140,145,141);
+    background-color: #161b33;
+    border: 2px solid black;
+    border-radius: 2px;
+    color: var(--main-text-color);
     cursor: pointer;
 }
-/* todo: optimize for mobile */
 
-#settings-container #reset:hover {
+#settings-bottom #reset:hover {
     background-color: rgb(199, 103, 103);
     color: white;
-    border-color:white;
 }
 
-#settings-container span:first-child {
-    background-color: white;
+#settings-bottom #psychedelic:hover {
+    background-color: #7e81c2;
+    border-top-color: #ea698b;
+    border-right-color: #822faf;
+    border-bottom-color: #571089;
+    border-left-color: #f79d65;
+    color: white;
+}
+
+#settings-right input[type="range"] {
+    transform: rotate(270deg);
+    cursor: pointer;
+}
+
+/* responsive layout */
+
+@media screen and (max-width: 900px) {
+    #main {
+        left: 15%;
+    }
+
+    body h1 {
+        left: -3em;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #main {
+        left: 0;
+    }
+
+    body h1 {
+        left: -5em;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    #settings-right {
+        width: 30em;
+        height: 3.5em;
+        position: relative;
+        left: 0.5em;
+        top: 2em;
+    }
+
+    #settings-right input[type="range"] {
+        transform: none;
+        cursor: pointer;
+    }
 }
