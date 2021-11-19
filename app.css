@@ -1,9 +1,90 @@
-body {
-    font-family: sans-serif;
-    text-align: center;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&family=Montserrat&display=swap');
 
-.setup {
-    border: 1px solid black;
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Concert One;
+    background-color: rgb(211, 182, 219);
+    min-height: 100vh;
+    /* margin: 0; */
+}
+
+h1 {
+    position: relative;
+    top: 3px;
+    left: -150px;
+    overflow: hidden;
+    /* font-family: Concert One; */
+    font-size: 1.5em;
+    /* color: rgb(59, 69, 61); */
+    color: rgb(102, 89, 89);
+    text-align: center;
+    margin-bottom: 0;
+}
+
+#canvas-container {
+    display: flex;
+    margin: 0 2em 2em 2em;
+}
+
+#canvas-container .canvas {
+    border-radius: 5px;
+    box-shadow: -5px 5px 15px 2px rgb(167, 146, 173);
     margin: auto;
-  }
+}
+
+#settings-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#settings-container div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(161, 82, 102, 0.3);
+    width: 30em;
+    padding: 0.5em;
+    border-radius: 20px;
+    box-shadow: -5px 5px 15px 1px rgb(167, 146, 173);
+}
+
+#settings-container input {
+    margin: 5px;
+    cursor:pointer;
+}
+
+#settings-container span {
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    margin: 5px;
+    border-radius: 50%;
+    cursor:pointer;
+}
+
+#settings-container button {
+    font-family: Concert One;
+    margin: 5px;
+    padding: 4px;
+    background-color: white;
+    border-color:rgb(140,145,141);
+    border: 2px solid;
+    border-radius: 4px;
+    color: rgb(140,145,141);
+    cursor: pointer;
+}
+/* todo: optimize for mobile */
+
+#settings-container #reset:hover {
+    background-color: rgb(199, 103, 103);
+    color: white;
+    border-color:white;
+}
+
+#settings-container span:first-child {
+    background-color: white;
+}
