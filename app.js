@@ -1,49 +1,96 @@
-let gameCanvas, gc, prevX, prevY;
+let drawing = false;
+let canvas, ctx, prevX, prevY;
 
-addEventListener("load", load);
+const resetBtn = document.getElementById("reset");
+const container = document.getElementById("settings-container");
 
 function load(e) {
-  document.getElementById("reset").addEventListener("click", load);
+    canvas = document.querySelector('.canvas');
+    ctx = canvas.getContext('2d');
 
-  gameCanvas = document.querySelector(".canvas");
-  gc = gameCanvas.getContext("2d");
-
-  gameCanvas.addEventListener("mousemove", draw);
-
-  gc.fillStyle = "white";
-  gc.fillRect(0, 0, 600, 600);
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('mouseup', endDrawing);
+    canvas.addEventListener('mousemove', draw);
 }
 
-function draw(e) {
-  var x = e.offsetX;
-  var y = e.offsetY;
-  //set stroke color
-  let color = setStrokeColor();
-  gc.strokeStyle = color;
-  gc.lineWidth = 4;
-  if (e.buttons == 1) {
-    drawLine(prevX, prevY, x, y);
-    drawLine(600 - prevX, 600 - prevY, 600 - x, 600 - y);
-    drawLine(600 - prevX, prevY, 600 - x, y);
-    drawLine(prevX, 600 - prevY, x, 600 - y);
-    drawLine(prevY, prevX, y, x);
-    drawLine(600 - prevY, 600 - prevX, 600 - y, 600 - x);
-    drawLine(600 - prevY, prevX, 600 - y, x);
-    drawLine(prevY, 600 - prevX, y, 600 - x);
-  }
-  prevX = x;
-  prevY = y;
+function startDrawing(e){
+    drawing = true;
+    draw(e);
+}
+
+function endDrawing(){
+    drawing = false;
+    ctx.beginPath();
+}
+
+function draw(e){
+    ctx.lineWidth = 3;
+    ctx.linecap = "round";
+    ctx.strokeStyle = setRandomColor();
+
+    const x = e.offsetX;
+    const y = e.offsetY;
+    
+    if (drawing) {
+        drawLine(prevX, prevY, x, y);
+        drawLine(500 - prevX, 500 - prevY, 500 - x, 500 - y);
+        drawLine(500 - prevX, prevY, 500 - x, y);
+        drawLine(prevX, 500 - prevY, x, 500 - y);
+        drawLine(prevY, prevX, y, x);
+        drawLine(500 - prevY, 500 - prevX, 500 - y, 500 - x);
+        drawLine(500 - prevY, prevX, 500 - y, x);
+        drawLine(prevY, 500 - prevX, y, 500 - x);
+    }
+    prevX = x;
+    prevY = y;
 }
 
 function drawLine(x1, y1, x2, y2) {
-  gc.beginPath();
-  gc.moveTo(x1, y1);
-  gc.lineTo(x2, y2);
-  gc.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.stroke();
 }
 
-//get selected color
+//get selected color from color input
 function setStrokeColor(){
-    let color = document.getElementById("color").value
+    const color = document.getElementById("brush-color").value
     return color;
-} 
+}
+
+//psychedelic version
+function setRandomColor(){
+    const r = Math.round(Math.random() * 200);
+    const g = Math.round(Math.random() * 200);
+    const b = Math.round(Math.random() * 200);
+    return `rgb(${r}, ${g}, ${b})`
+}
+
+function handleSettingsClick(e){
+    const dataColor = e.target.dataset.color;
+    const target = e.target.tagName;
+    const id = e.target.id
+
+    // changes canvas background
+    if(target === "SPAN" && dataColor === "#fff") {
+        ctx.fillStyle = "white";
+        ctx.fillRect(0, 0, 500, 500);
+    } 
+    else if(target === "SPAN" && dataColor === "#000") {
+        ctx.fillStyle = "black";
+        ctx.fillRect(0, 0, 500, 500);
+    }
+
+    // handles reset button
+    if(id === "reset") {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+}
+
+window.addEventListener('load', load);
+container.addEventListener("click", handleSettingsClick);
+
+// ideas to implement:
+// - stroke size
+// 
