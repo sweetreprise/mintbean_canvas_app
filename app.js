@@ -2,7 +2,7 @@ let drawing = false;
 let canvas, ctx, prevX, prevY;
 
 const resetBtn = document.getElementById("reset");
-const container = document.getElementById("settings-container");
+const container = document.getElementById("settings-bottom");
 
 function load(e) {
     canvas = document.querySelector('.canvas');
@@ -85,7 +85,6 @@ function handleSettingsClick(e){
     if(id === "reset") {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
-
 }
 
 window.addEventListener('load', load);
@@ -93,4 +92,5 @@ container.addEventListener("click", handleSettingsClick);
 
 // ideas to implement:
 // - stroke size
-// 
+// - diff buttons based on themes??
+// - make responsive to mobile devices (touchmove)
