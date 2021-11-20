@@ -24,8 +24,9 @@ function endDrawing() {
 }
 
 function draw(e) {
-  ctx.lineWidth = 3;
-  ctx.linecap = "round";
+  //handle lineWidth from html range input
+  let lineWidth = document.querySelector("#lineWidth").value;
+  ctx.lineWidth = lineWidth;
   
   //handling psycheledic or one color pick
   if (checkbox.checked) {
@@ -33,6 +34,8 @@ function draw(e) {
   } else {
     ctx.strokeStyle = setStrokeColor();
   }
+
+  ctx.linecap = "round";
 
   const x = e.offsetX;
   const y = e.offsetY;
@@ -60,8 +63,8 @@ function drawLine(x1, y1, x2, y2) {
 
 //get selected color from color input
 function setStrokeColor() {
-  const colorPicker = document.querySelector("#brush-color");
-  ctx.strokeStyle = colorPicker.value;
+  const colorPicker = document.querySelector("#brush-color").value;
+  return colorPicker
 }
 
 //psychedelic version
@@ -99,3 +102,5 @@ container.addEventListener("click", handleSettingsClick);
 // - stroke size
 // - diff buttons based on themes??
 // - make responsive to mobile devices (touchmove)
+
+
