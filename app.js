@@ -8,9 +8,9 @@ function load(e) {
   canvas = document.querySelector(".canvas");
   ctx = canvas.getContext("2d");
 
-  canvas.addEventListener("mousedown", startDrawing);
-  canvas.addEventListener("mouseup", endDrawing);
-  canvas.addEventListener("mousemove", draw);
+  canvas.addEventListener("mousedown", startDrawing, false);
+  canvas.addEventListener("mouseup", endDrawing, false);
+  canvas.addEventListener("mousemove", draw, false);
 }
 
 function startDrawing(e) {
@@ -24,18 +24,19 @@ function endDrawing() {
 }
 
 function draw(e) {
+  ctx.linecap = "butt";
+  ctx.lineJoin = "miter";
+
   //handle lineWidth from html range input
   let lineWidth = document.querySelector("#lineWidth").value;
   ctx.lineWidth = lineWidth;
-  
+
   //handling psycheledic or one color pick
   if (checkbox.checked) {
     ctx.strokeStyle = setRandomColor();
   } else {
     ctx.strokeStyle = setStrokeColor();
   }
-
-  ctx.linecap = "round";
 
   const x = e.offsetX;
   const y = e.offsetY;
@@ -64,7 +65,7 @@ function drawLine(x1, y1, x2, y2) {
 //get selected color from color input
 function setStrokeColor() {
   const colorPicker = document.querySelector("#brush-color").value;
-  return colorPicker
+  return colorPicker;
 }
 
 //psychedelic version
