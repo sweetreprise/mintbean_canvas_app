@@ -7,38 +7,33 @@
     <title>Symmetry Art</title>
   </head>
   <body>
-
     <h1>SYMMETRY ART.</h1>
 
-    
     <div id="main">
       <canvas class="canvas" width="500" height="500"></canvas>
 
-        <div id="settings-bottom">
-            Background:
-            <span class="canvas-bg" data-color="#fff">&nbsp;</span>
-            <span class="canvas-bg" data-color="#000">&nbsp;</span>
+      <div id="settings-bottom">
+        Background:
+        <span class="canvas-bg" data-color="#fff">&nbsp;</span>
+        <span class="canvas-bg" data-color="#000">&nbsp;</span>
 
-            <label for="brush-color">Line: </label>
-            <input type="color" id="brush-color">
+        <label for="brush-color">Line: </label>
+        <input type="color" id="brush-color" />
 
-            <button id="reset">Reset</button>
-            <button id="psychedelic">Psychedelic</button>
-        </div>
+        <button id="reset">Reset</button>
 
-        <div id="settings-right">
-            <input type="range">
-        </div>
-    
+        Psycheledic:
+        <label class="switch">
+          <input type="checkbox" />
+          <div class="slider round"></div>
+        </label>
+      </div>
+
+      <div id="settings-right">
+        <input type="range" />
+      </div>
     </div>
 
-    
-
-
-    
-    
-
-    
     <script src="app.js"></script>
   </body>
 </html>
