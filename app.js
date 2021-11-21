@@ -13,19 +13,19 @@ function load(e) {
   canvas.addEventListener("mousemove", draw);
   // handle touch events
   canvas.addEventListener("touchstart", function (e) {
-    console.log(e)
-    e.preventDefault();
-    startDrawing(e);
+      console.log(e);
+      e.preventDefault();
+      startDrawing(e);
     }, false
   );
   canvas.addEventListener("touchmove", function (e) {
-    e.preventDefault();
-    draw(e);
+      e.preventDefault();
+      draw(e);
     }, false
   );
   canvas.addEventListener("touchend", function (e) {
-    e.preventDefault();
-    endDrawing(e);
+      e.preventDefault();
+      endDrawing(e);
     }, false
   );
 }
@@ -43,7 +43,10 @@ function endDrawing() {
 function draw(e) {
   ctx.linecap = "round";
   ctx.lineJoin = "round";
-  console.log(e)
+  //handle shadow blur line from html range
+  let shadow = document.querySelector("#blur-line").value;
+  ctx.shadowBlur = shadow;
+
   //handle lineWidth from html range input
   let lineWidth = document.querySelector("#line-width").value;
   ctx.lineWidth = lineWidth;
@@ -51,12 +54,14 @@ function draw(e) {
   //handling psycheledic or one color pick
   if (checkbox.checked) {
     ctx.strokeStyle = setRandomColor();
+    ctx.shadowColor = setRandomColor();
   } else {
     ctx.strokeStyle = setStrokeColor();
+    ctx.shadowColor = setStrokeColor();
   }
 
   const x = e.offsetX || e.touches[0].pageX;
-  const y = e.offsetY || e.touches[0].pageY; 
+  const y = e.offsetY || e.touches[0].pageY;
 
   if (drawing) {
     drawLine(prevX, prevY, x, y);

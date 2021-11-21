@@ -42,7 +42,7 @@ body h1, h2, h3{
     margin: auto;
 }
 
-#settings-bottom, #settings-right {
+#settings-bottom, #settings-right, #settings-left {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,12 +53,28 @@ body h1, h2, h3{
 }
 
 #settings-right {
+    flex-direction: column;
     width: 3em;
     height: 30em;
     position: relative;
-    left: 32em;
-    top: -34em;
+    left: 33.5em;
+    top: -64.5em;
 }
+
+#settings-left {
+    flex-direction: column;
+    width: 3em;
+    height: 30em;
+    position: relative;
+    top: -34.5em;
+    left: -5em;
+}
+
+.label {
+    position: relative;
+    top: -5rem;
+}
+
 
 #settings-bottom {
     position: relative;
@@ -119,7 +135,7 @@ body h1, h2, h3{
     color: white;
 }
 
-#settings-right input[type="range"] {
+#settings-right input[type="range"], #settings-left input[type="range"] {
     transform: rotate(270deg);
     cursor: pointer;
 }
