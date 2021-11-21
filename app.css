@@ -20,7 +20,7 @@ body {
     margin: 0;
 }
 
-body h1 {
+body h1, h2, h3{
     position: relative;
     top: 3px;
     overflow: hidden;
@@ -226,8 +226,7 @@ body h1 {
     overflow: hidden;
   }
 
-  .navbar a {
-    float: left;
+  .nav-left a, .nav-right a {
     color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
@@ -235,7 +234,27 @@ body h1 {
     font-size: 17px;
   }
 
+  .nav-left a {
+    float: left;
+  }
+
+  .nav-right a {
+    float: right;
+  }
+
   .navbar a:hover {
     background-color: #ddd;
     color: black;
   }
+
+  /* handle mainpage */
+
+  #authors {
+      display: flex;
+      justify-content: space-around;
+  }
+
+  
+.hidden {
+    display: none;
+}

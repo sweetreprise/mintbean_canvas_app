@@ -28,7 +28,7 @@ function draw(e) {
   ctx.lineJoin = "miter";
 
   //handle lineWidth from html range input
-  let lineWidth = document.querySelector("#lineWidth").value;
+  let lineWidth = document.querySelector("#line-width").value;
   ctx.lineWidth = lineWidth;
 
   //handling psycheledic or one color pick
@@ -104,4 +104,28 @@ container.addEventListener("click", handleSettingsClick);
 // - diff buttons based on themes??
 // - make responsive to mobile devices (touchmove)
 
+// handle show and hide page components
+const canvasSection = document.getElementById("canvas");
+const mainPage = document.getElementById("main-page");
+const canvasLinks = document.querySelectorAll(".canvas-link"); // there are 2 buttons that the user can click to go to canvas. We can change to anything else
+const logo = document.querySelector(".logo")
 
+function hidePageComponents(component) {
+  component.classList.add("hidden");
+}
+
+function showPageComponents(component) {
+  component.classList.remove("hidden");
+}
+
+for (link of canvasLinks) {
+  link.addEventListener("click", () => {
+    hidePageComponents(mainPage);
+    showPageComponents(canvasSection);
+  });
+}
+
+logo.addEventListener("click", () => {
+  hidePageComponents(canvasSection);
+  showPageComponents(mainPage);
+});

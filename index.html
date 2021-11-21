@@ -7,38 +7,71 @@
     <title>Symmetry Art</title>
   </head>
   <body>
+    <nav class="navbar">
+      <div class="nav-left">
+        <a href="#" class="logo">Logo</a>
+      </div>
+      <div class="nav-right">
+        <a href="#" class="canvas-link">My canvas</a>
+      </div>
+    </nav>
 
-    <div class="navbar">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-    </div>
-
-    <h1>SYMMETRY ART.</h1>
-
-    <div id="main">
-      <canvas class="canvas" width="500" height="500"></canvas>
-
-      <div id="settings-bottom">
-        Background:
-        <span class="canvas-bg" data-color="#fff">&nbsp;</span>
-        <span class="canvas-bg" data-color="#000">&nbsp;</span>
-
-        <label for="brush-color">Line: </label>
-        <input type="color" id="brush-color" />
-
-        <button id="reset">Reset</button>
-
-        Psycheledic:
-        <label class="switch">
-          <input type="checkbox" />
-          <div class="slider round"></div>
-        </label>
+    <section id="main-page">
+      <div>
+        <h1>SYMMETRY ART</h1>
+        <h2>some slogan?</h2>
+        <h2>Start creating you art <a href="#" class="canvas-link">here</a></h2>
       </div>
 
-      <div id="settings-right">
-        <input type="range" min="1" max="10" id="lineWidth" name="lineWidth"/>
+      <h3>Authors</h3>
+      <div id="authors">
+        <div>
+          <a href=""><p>Name</p></a> <!--add linkedin link-->
+          <img src="" alt="picture" />
+          <p>description</p>
+        </div>
+        <div>
+          <a href=""><p>Name</p></a> <!--add linkedin link-->
+          <img src="" alt="picture" />
+          <p>description</p>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <section id="canvas" class="hidden">
+      <h1>SYMMETRY ART.</h1>
+
+      <div id="main">
+        <canvas class="canvas" width="500" height="500"></canvas>
+
+        <div id="settings-bottom">
+          Background:
+          <span class="canvas-bg" data-color="#fff">&nbsp;</span>
+          <span class="canvas-bg" data-color="#000">&nbsp;</span>
+
+          <label for="brush-color">Line: </label>
+          <input type="color" id="brush-color" />
+
+          <button id="reset">Reset</button>
+
+          Psycheledic:
+          <label class="switch">
+            <input type="checkbox" />
+            <div class="slider round"></div>
+          </label>
+        </div>
+
+        <div id="settings-right">
+          <input
+            type="range"
+            min="1"
+            max="10"
+            id="line-width"
+            name="line-width"
+          />
+        </div>
+      </div>
+    </section>
 
     <script src="app.js"></script>
   </body>
