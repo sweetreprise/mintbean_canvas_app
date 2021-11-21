@@ -8,9 +8,26 @@ function load(e) {
   canvas = document.querySelector(".canvas");
   ctx = canvas.getContext("2d");
 
-  canvas.addEventListener("mousedown", startDrawing, false);
-  canvas.addEventListener("mouseup", endDrawing, false);
-  canvas.addEventListener("mousemove", draw, false);
+  canvas.addEventListener("mousedown", startDrawing);
+  canvas.addEventListener("mouseup", endDrawing);
+  canvas.addEventListener("mousemove", draw);
+  // handle touch events
+  canvas.addEventListener("touchstart", function (e) {
+    console.log(e)
+    e.preventDefault();
+    startDrawing(e);
+    }, false
+  );
+  canvas.addEventListener("touchmove", function (e) {
+    e.preventDefault();
+    draw(e);
+    }, false
+  );
+  canvas.addEventListener("touchend", function (e) {
+    e.preventDefault();
+    endDrawing(e);
+    }, false
+  );
 }
 
 function startDrawing(e) {
@@ -24,9 +41,9 @@ function endDrawing() {
 }
 
 function draw(e) {
-  ctx.linecap = "butt";
-  ctx.lineJoin = "miter";
-
+  ctx.linecap = "round";
+  ctx.lineJoin = "round";
+  console.log(e)
   //handle lineWidth from html range input
   let lineWidth = document.querySelector("#line-width").value;
   ctx.lineWidth = lineWidth;
@@ -38,8 +55,8 @@ function draw(e) {
     ctx.strokeStyle = setStrokeColor();
   }
 
-  const x = e.offsetX;
-  const y = e.offsetY;
+  const x = e.offsetX || e.touches[0].pageX;
+  const y = e.offsetY || e.touches[0].pageY; 
 
   if (drawing) {
     drawLine(prevX, prevY, x, y);
@@ -108,7 +125,7 @@ container.addEventListener("click", handleSettingsClick);
 const canvasSection = document.getElementById("canvas");
 const mainPage = document.getElementById("main-page");
 const canvasLinks = document.querySelectorAll(".canvas-link"); // there are 2 buttons that the user can click to go to canvas. We can change to anything else
-const logo = document.querySelector(".logo")
+const logo = document.querySelector(".logo");
 
 function hidePageComponents(component) {
   component.classList.add("hidden");
