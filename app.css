@@ -188,8 +188,8 @@ body h1, h2, h3{
     }
 
     #main .canvas {
-        height: 320px;
-        width: 320px;
+        height: 50vh;
+        width: 90vw;
     }
 
     #settings-right {

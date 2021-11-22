@@ -2,7 +2,6 @@ let drawing, setPsychedelic = false;
 let canvas, ctx, prevX, prevY, numLines;
 
 const container = document.getElementById("settings-bottom");
-const checkbox = document.querySelector('input[type="checkbox"]');
 const psyBtn = document.getElementById("psychedelic");
 const twoLines = document.getElementById("line-two");
 const fourLines = document.getElementById("line-four");
@@ -75,7 +74,7 @@ function draw(e) {
   getCanvasDimensions();
 
   const width = canvas.width;
-  const height = canvas.height;
+  const height = width;
 
   if (drawing && numLines === '2') {
     drawLine(prevX, prevY, x, y);
