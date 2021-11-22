@@ -74,7 +74,7 @@ function draw(e) {
   getNumLines();
   getCanvasDimensions();
 
-  const width = canvas.wdith;
+  const width = canvas.width;
   const height = canvas.height;
 
   if (drawing && numLines === '2') {
