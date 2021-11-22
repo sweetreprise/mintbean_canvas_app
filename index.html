@@ -16,33 +16,47 @@
       </div>
     </nav>
 
-    <section id="main-page">
-      <div>
-        <h1>SYMMETRY ART</h1>
-        <h2>some slogan?</h2>
-        <h2>Start creating you art <a href="#" class="canvas-link">here</a></h2>
+    <section id="main-page" class="section-top">
+      <div id="header">
+        <div id="app-description">
+          <h1 class="name head">SYMMETRY ART</h1>
+          <h2 class="line-height">Create your mesmerizing art easily with symmetry art.</h2>
+          <h2 class="line-height">Try it <a href="#" class="canvas-link">now</a></h2>
+        </div>
+        <div id="pics">
+          <img src="/assets/sample1.PNG" alt="sample1" class="sample">
+          <img src="/assets/sample2.PNG" alt="sample1" class="sample">
+        </div>
       </div>
 
-      <h3>Authors</h3>
+      <h3 class="author-header">Authors</h3>
       <div id="authors">
-        <div>
-          <a href=""><p>Name</p></a>
-          <!--add linkedin link-->
-          <img src="" alt="picture" />
-          <p>description</p>
+        <div class="author">
+          <p class="name">Maria Acuna</p>
+          <img
+            src="https://media-exp1.licdn.com/dms/image/C5603AQESSUyPIzuJ1Q/profile-displayphoto-shrink_800_800/0/1637130611957?e=1643241600&v=beta&t=MfiyfvvK4i7q6JM7WdpcC2oOq9OWHFpvlp17RL1s65U"
+            alt="Maria Acuna"
+            class="profile-pic"
+          />
+          <p class="author-description">description</p>
         </div>
-        <div>
-          <a href=""><p>Name</p></a>
+        <div class="author">
+          <p class="name">Boonyawee Prasertsiripond</p>
           <!--add linkedin link-->
-          <img src="" alt="picture" />
-          <p>description</p>
+          <img
+            src="/assets/profile.jfif"
+            alt="Boonyawee Prasertsiripond"
+            class="profile-pic"
+          />
+          <p class="author-description">
+            A web development enthusiast with full stack skills and background
+            in hospitality
+          </p>
         </div>
       </div>
     </section>
 
-    <section id="canvas" class="hidden">
-      <!-- <h1>SYMMETRY ART.</h1> -->
-
+    <section id="canvas" class="hidden section-top">
       <div id="main">
         <canvas class="canvas"></canvas>
 
@@ -55,18 +69,25 @@
           <input type="color" id="brush-color" />
 
           <button id="reset">Reset</button>
-        
+
           <button id="psychedelic">psychedelic</button>
-           
         </div>
 
         <div id="settings-left">
-            <input type="radio" id="line-two" name="fav_language" value="2">
-              <label for="line-two">2</label><br>
-              <input type="radio" id="line-four" name="fav_language" value="4">
-              <label for="line-four">4</label><br>
-              <input type="radio" id="line-eight" name="fav_language" value="8" checked>
-              <label for="line-eight">8</label>
+          <input type="radio" id="line-two" name="fav_language" value="2" />
+            <label for="line-two">2</label><br />
+           
+          <input type="radio" id="line-four" name="fav_language" value="4" />  
+          <label for="line-four">4</label><br />
+           
+          <input
+            type="radio"
+            id="line-eight"
+            name="fav_language"
+            value="8"
+            checked
+          />
+            <label for="line-eight">8</label>
         </div>
 
         <div id="settings-right">
