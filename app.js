@@ -36,7 +36,6 @@ function load(e) {
 }
 
 
-
 function startDrawing(e) {
   drawing = true;
   draw(e);
@@ -73,26 +72,30 @@ function draw(e) {
   const y = e.offsetY || (e.touches[0].clientY - rect.top)
 
   getNumLines();
+  getCanvasDimensions();
+
+  const width = canvas.wdith;
+  const height = canvas.height;
 
   if (drawing && numLines === '2') {
     drawLine(prevX, prevY, x, y);
-    drawLine(500 - prevX, 500 - prevY, 500 - x, 500 - y);
+    drawLine(width - prevX, height - prevY, width - x, height - y);
   
   } else if (drawing && numLines === '4') {
     drawLine(prevX, prevY, x, y);
-    drawLine(500 - prevX, 500 - prevY, 500 - x, 500 - y);
-    drawLine(500 - prevX, prevY, 500 - x, y);
-    drawLine(prevX, 500 - prevY, x, 500 - y);
+    drawLine(width - prevX, height - prevY, width - x, height - y);
+    drawLine(width - prevX, prevY, width - x, y);
+    drawLine(prevX, height - prevY, x, height - y);
 
   } else if (drawing) {
     drawLine(prevX, prevY, x, y);
-    drawLine(500 - prevX, 500 - prevY, 500 - x, 500 - y);
-    drawLine(500 - prevX, prevY, 500 - x, y);
-    drawLine(prevX, 500 - prevY, x, 500 - y);
+    drawLine(width - prevX, height - prevY, width - x, height - y);
+    drawLine(width - prevX, prevY, width - x, y);
+    drawLine(prevX, height - prevY, x, height - y);
     drawLine(prevY, prevX, y, x);
-    drawLine(500 - prevY, 500 - prevX, 500 - y, 500 - x);
-    drawLine(500 - prevY, prevX, 500 - y, x);
-    drawLine(prevY, 500 - prevX, y, 500 - x);
+    drawLine(height - prevY, width - prevX, height - y, width - x);
+    drawLine(height - prevY, prevX, height - y, x);
+    drawLine(prevY, width - prevX, y, width - x);
   }
 
   prevX = x;
@@ -104,6 +107,17 @@ function drawLine(x1, y1, x2, y2) {
   ctx.moveTo(x1, y1);
   ctx.lineTo(x2, y2);
   ctx.stroke();
+}
+
+// gets dimensions of the canvas
+function getCanvasDimensions() {
+   const width = canvas.clientWidth;
+   const height = canvas.clientHeight;
+
+   if (canvas.width !== width || canvas.height !== height) {
+     canvas.width = width;
+     canvas.height = height;
+   }
 }
 
 //get selected color from color input
