@@ -1,29 +1,34 @@
-let drawing = false;
-let canvas, ctx, prevX, prevY;
+let drawing, setPsychedelic = false;
+let canvas, ctx, prevX, prevY, numLines;
 
 const container = document.getElementById("settings-bottom");
 const checkbox = document.querySelector('input[type="checkbox"]');
+const psyBtn = document.getElementById("psychedelic");
+const twoLines = document.getElementById("line-two");
+const fourLines = document.getElementById("line-four");
+const eightLines = document.getElementById("line-eight");
 
 function load(e) {
   canvas = document.querySelector(".canvas");
   ctx = canvas.getContext("2d");
 
+  // handles mouse events
   canvas.addEventListener("mousedown", startDrawing);
   canvas.addEventListener("mouseup", endDrawing);
   canvas.addEventListener("mousemove", draw);
-  // handle touch events
-  canvas.addEventListener("touchstart", function (e) {
-      console.log(e);
+
+  // handles touch events
+  canvas.addEventListener("touchstart", e => {
       e.preventDefault();
       startDrawing(e);
     }, false
   );
-  canvas.addEventListener("touchmove", function (e) {
+  canvas.addEventListener("touchmove", e => {
       e.preventDefault();
       draw(e);
     }, false
   );
-  canvas.addEventListener("touchend", function (e) {
+  canvas.addEventListener("touchend", e => {
       e.preventDefault();
       endDrawing(e);
     }, false
@@ -43,16 +48,16 @@ function endDrawing() {
 function draw(e) {
   ctx.linecap = "round";
   ctx.lineJoin = "round";
-  //handle shadow blur line from html range
+  //handle shadow blur line from html range input
   let shadow = document.querySelector("#blur-line").value;
   ctx.shadowBlur = shadow;
 
-  //handle lineWidth from html range input
+  //handle line width from html range input
   let lineWidth = document.querySelector("#line-width").value;
   ctx.lineWidth = lineWidth;
 
-  //handling psycheledic or one color pick
-  if (checkbox.checked) {
+  //sets stroke color
+  if (setPsychedelic === true) {
     ctx.strokeStyle = setRandomColor();
     ctx.shadowColor = setRandomColor();
   } else {
@@ -63,7 +68,19 @@ function draw(e) {
   const x = e.offsetX || e.touches[0].pageX;
   const y = e.offsetY || e.touches[0].pageY;
 
-  if (drawing) {
+  getNumLines();
+
+  if (drawing && numLines === '2') {
+    drawLine(prevX, prevY, x, y);
+    drawLine(500 - prevX, 500 - prevY, 500 - x, 500 - y);
+  
+  } else if (drawing && numLines === '4') {
+    drawLine(prevX, prevY, x, y);
+    drawLine(500 - prevX, 500 - prevY, 500 - x, 500 - y);
+    drawLine(500 - prevX, prevY, 500 - x, y);
+    drawLine(prevX, 500 - prevY, x, 500 - y);
+
+  } else if (drawing) {
     drawLine(prevX, prevY, x, y);
     drawLine(500 - prevX, 500 - prevY, 500 - x, 500 - y);
     drawLine(500 - prevX, prevY, 500 - x, y);
@@ -73,6 +90,7 @@ function draw(e) {
     drawLine(500 - prevY, prevX, 500 - y, x);
     drawLine(prevY, 500 - prevX, y, 500 - x);
   }
+
   prevX = x;
   prevY = y;
 }
@@ -98,6 +116,25 @@ function setRandomColor() {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
+// toggles psychedelic class list
+function switchPsychMode() {
+    setPsychedelic = setPsychedelic === false ? true : false;
+    psyBtn.classList.toggle("on");
+    return setPsychedelic;
+}
+
+function getNumLines() {
+    if (twoLines.checked) {
+        numLines = twoLines.value
+    } else if (fourLines.checked) {
+        numLines = fourLines.value
+    } else {
+        numLines = eightLines.value
+    }
+    return numLines;
+}
+
+// handles clicks on bottom bar
 function handleSettingsClick(e) {
   const dataColor = e.target.dataset.color;
   const target = e.target.tagName;
@@ -116,15 +153,14 @@ function handleSettingsClick(e) {
   if (id === "reset") {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   }
+  // handles psychedelic button click
+  if (id === "psychedelic") {
+    switchPsychMode();
+  }
 }
 
 window.addEventListener("load", load);
 container.addEventListener("click", handleSettingsClick);
-
-// ideas to implement:
-// - stroke size
-// - diff buttons based on themes??
-// - make responsive to mobile devices (touchmove)
 
 // handle show and hide page components
 const canvasSection = document.getElementById("canvas");
