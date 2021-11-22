@@ -26,16 +26,13 @@ function load(e) {
     canvas.addEventListener("touchmove", e => {
         e.preventDefault();
         draw(e);
-        ctx.beginPath();
     }, false
     );
 
     canvas.addEventListener("touchend", e => {
         e.preventDefault();
-        ctx.beginPath();
     }, false
     );
-
 }
 
 
