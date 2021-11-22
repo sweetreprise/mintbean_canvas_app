@@ -195,6 +195,35 @@ body h1, h2, h3{
         width: 90vw;
     }
 
+    #authors, #header, #pics {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #app-description {
+        margin-left: 0;
+    }
+
+    #pics {
+        margin-top: 100px;
+    }
+
+    .sample {
+        margin-left: 2.5em;
+    }
+
+    #responsive-header {
+        margin-top: 100px;
+    }
+
+    #header {
+        margin-top: 0;
+    }
+
+    .line-height {
+        margin-left: -165px;
+    }
+
     #settings-right {
         flex-direction:row;
         width: 80vw;
@@ -202,11 +231,6 @@ body h1, h2, h3{
         position: relative;
         left: 0.5em;
         top: -1.2em;
-    }
-
-    #authors {
-        display: flex;
-        flex-direction: column;
     }
      
     #settings-right input[type="range"] {
@@ -318,7 +342,7 @@ body h1, h2, h3{
     width: 150px;
     margin: 0 auto;
     margin-top: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .section-top {
@@ -369,4 +393,9 @@ body h1, h2, h3{
     font-size: 3em;
     margin-top: 150px;
     margin-bottom: 60px;
+}
+
+.linkedin {
+    width: 30px;
+    margin-bottom: 20px;
 }
