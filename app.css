@@ -193,7 +193,7 @@ body h1, h2, h3{
 
     #settings-right {
         flex-direction:row;
-        width: 75vw;
+        width: 80vw;
         height: 2.5em;
         position: relative;
         left: 0.5em;
@@ -218,7 +218,7 @@ body h1, h2, h3{
    }
 
    #settings-bottom {
-        width: 75vw;
+        width: 80vw;
         left: 0.5em;
         font-size: 10px;
    }
@@ -229,7 +229,7 @@ body h1, h2, h3{
 
    #settings-left {
         flex-direction: row;
-        width: 75vw;
+        width: 80vw;
         height: 2.5em;
         position: relative;
         top: 4.4em;
