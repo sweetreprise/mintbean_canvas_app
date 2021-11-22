@@ -18,22 +18,27 @@ function load(e) {
   canvas.addEventListener("mousemove", draw);
 
   // handles touch events
-  canvas.addEventListener("touchstart", e => {
-      e.preventDefault();
-      startDrawing(e);
+    canvas.addEventListener("touchstart", e => {
+        startDrawing(e);
     }, false
-  );
-  canvas.addEventListener("touchmove", e => {
-      e.preventDefault();
-      draw(e);
+    );
+
+    canvas.addEventListener("touchmove", e => {
+        e.preventDefault();
+        draw(e);
+        ctx.beginPath();
     }, false
-  );
-  canvas.addEventListener("touchend", e => {
-      e.preventDefault();
-      endDrawing(e);
+    );
+
+    canvas.addEventListener("touchend", e => {
+        e.preventDefault();
+        ctx.beginPath();
     }, false
-  );
+    );
+
 }
+
+
 
 function startDrawing(e) {
   drawing = true;
@@ -65,8 +70,10 @@ function draw(e) {
     ctx.shadowColor = setStrokeColor();
   }
 
-  const x = e.offsetX || e.touches[0].pageX;
-  const y = e.offsetY || e.touches[0].pageY;
+  const rect = canvas.getBoundingClientRect()
+
+  const x = e.offsetX || (e.touches[0].clientX - rect.left)
+  const y = e.offsetY || (e.touches[0].clientY - rect.top)
 
   getNumLines();
 
@@ -184,6 +191,7 @@ for (link of canvasLinks) {
 }
 
 logo.addEventListener("click", () => {
-  hidePageComponents(canvasSection);
-  showPageComponents(mainPage);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    hidePageComponents(canvasSection);
+    showPageComponents(mainPage);
 });
