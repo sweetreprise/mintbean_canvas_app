@@ -179,45 +179,62 @@ body h1, h2, h3{
     }
 }
 
-@media screen and (max-width: 750px) {
-    #main {
-        left: 0;
-    }
-
-    body h1 {
-        left: -5em;
-    }
-}
-
 @media screen and (max-width: 620px) {
 
+    #main {
+        left: 0;
+        margin: 2em;
+    }
+
     #main .canvas {
-        height: 400px;
-        width: 400px;
+        height: 320px;
+        width: 320px;
     }
 
     #settings-right {
         flex-direction:row;
-        width: 30em;
-        height: 3.5em;
+        width: 75vw;
+        height: 2.5em;
         position: relative;
         left: 0.5em;
-        top: -28em;
+        top: -1.2em;
     }
 
     #settings-right input[type="range"] {
         transform: none;
         cursor: pointer;
+        width: 20vw;
     }
 
     #settings-right .top, #settings-right .bottom {
         top: 0;
         padding: 1em;
+        font-size: 10px;
     }
 
    #settings-right #line-width, #settings-right #blur-line {
        top: 0;
+       width: 4em;
    }
+
+   #settings-bottom {
+        width: 75vw;
+        left: 0.5em;
+        font-size: 10px;
+   }
+
+   #settings-bottom button {
+       font-size: 10px;
+   }
+
+   #settings-left {
+        flex-direction: row;
+        width: 75vw;
+        height: 2.5em;
+        position: relative;
+        top: 4.4em;
+        left: 0.5em;
+    }
 }
 
   /* navbar */
