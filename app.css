@@ -183,7 +183,8 @@ body h1, h2, h3{
 
     #main {
         left: 0;
-        margin: 2em;
+        margin: 0 auto;
+        margin-top: 2em;
         height: fit-content;
     }
 
