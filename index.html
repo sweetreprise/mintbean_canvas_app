@@ -8,7 +8,7 @@
   </head>
 
   <body>
-      <!-- navbar -->
+    <!-- navbar -->
     <nav class="navbar">
       <div class="nav-left">
         <a href="#" class="logo">Symmetry Art</a>
@@ -23,12 +23,16 @@
       <div id="header">
         <div id="app-description">
           <h1 class="name head">SYMMETRY ART</h1>
-          <h2 class="line-height">Create your mesmerizing art easily with symmetry art.</h2>
-          <h2 class="line-height">Try it <a href="#" class="canvas-link">now</a></h2>
+          <h2 class="line-height">
+            Create your mesmerizing art easily with symmetry art.
+          </h2>
+          <h2 class="line-height">
+            Try it <a href="#" class="canvas-link">now</a>
+          </h2>
         </div>
         <div id="pics">
-          <img src="assets/sample1.PNG" alt="sample1" class="sample">
-          <img src="assets/sample2.PNG" alt="sample1" class="sample">
+          <img src="assets/sample1.PNG" alt="sample1" class="sample" />
+          <img src="assets/sample2.PNG" alt="sample1" class="sample" />
         </div>
       </div>
 
@@ -42,7 +46,20 @@
             class="profile-pic"
           />
           <p class="author-description">description</p>
-          <a href="https://www.linkedin.com/in/maria-acuna-ab0b09131/"><img class="linkedin" src="assets/linkedin_logo.png" alt="linkedin"></a>
+          <div class="contact-links">
+            <a href="mailto: maria.pv.acuna@gmail.com"
+              ><img
+                class="email"
+                src="assets/email-logo.png"
+                alt="maria.pv.acuna@gmail.com"
+            /></a>
+            <a href="https://www.linkedin.com/in/maria-acuna-ab0b09131/"
+              ><img
+                class="linkedin"
+                src="assets/linkedin_logo.png"
+                alt="linkedin"
+            /></a>
+          </div>
         </div>
         <div class="author">
           <p class="name">Boonyawee Prasertsiripond</p>
@@ -56,7 +73,20 @@
             A web development enthusiast with full stack skills and background
             in hospitality
           </p>
-          <a href="https://www.linkedin.com/in/boonyawee-prasertsiripond/"><img class="linkedin" src="assets/linkedin_logo.png" alt="linkedin"></a>
+          <div class="contact-links">
+            <a href="mailto: krataias65@gmail.com"
+              ><img
+                class="email"
+                src="assets/email-logo.png"
+                alt="krataias65@gmail.com"
+            /></a>
+            <a href="https://www.linkedin.com/in/boonyawee-prasertsiripond/"
+              ><img
+                class="linkedin"
+                src="assets/linkedin_logo.png"
+                alt="linkedin"
+            /></a>
+          </div>
         </div>
       </div>
     </section>
@@ -80,47 +110,21 @@
         </div>
 
         <div id="settings-left">
-          <input 
-            type="radio" 
-            id="line-two" 
-            name="line"
-            value="2" />
+          <input type="radio" id="line-two" name="line" value="2" />
             <label for="line-two">2</label><br />
            
-          <input 
-            type="radio" 
-            id="line-four" 
-            name="line"
-            value="4" />  
+          <input type="radio" id="line-four" name="line" value="4" />  
           <label for="line-four">4</label><br />
            
-          <input
-            type="radio"
-            id="line-eight"
-            name="line"
-            value="8"
-            checked
-          />
+          <input type="radio" id="line-eight" name="line" value="8" checked />
             <label for="line-eight">8</label>
         </div>
 
         <div id="settings-right">
           <div class="label top-text">Width</div>
-          <input
-            type="range"
-            min="1"
-            max="10"
-            id="line-width"
-            value="2"
-          />
+          <input type="range" min="1" max="10" id="line-width" value="2" />
           <div class="label bottom-text">Blur</div>
-          <input
-            type="range"
-            min="0"
-            max="10"
-            id="blur-line"
-            value="0"
-          />
+          <input type="range" min="0" max="10" id="blur-line" value="0" />
         </div>
       </div>
     </section>
