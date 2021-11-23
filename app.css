@@ -42,6 +42,7 @@ h1, h2, h3{
     border-radius: 5px;
     box-shadow: -5px 5px 15px 2px var(--primary-shadow);
     margin: auto;
+    padding: 5px;
     width: 500px;
     height: 500px;
 }
