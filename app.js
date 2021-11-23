@@ -7,7 +7,7 @@ const canvasSection = document.getElementById("canvas-section");
 const landingPage = document.getElementById("landing-page");
 const canvasLink = document.querySelectorAll(".canvas-link");
 const logo = document.querySelector(".logo");
-const lines = document.querySelectorAll("input[type='radio']")
+const lines = document.querySelectorAll("input[type='radio']");
 
 // * --------- GETS CANVAS VALUES / SETTINGS --------- * //
 // gets dimensions of the canvas
@@ -83,13 +83,14 @@ logo.addEventListener("click", () => {
  // start canvas drawing
 function startDrawing(e) {
     drawing = true;
-    draw(e);
+    ctx.beginPath();
 }
 
 // ends canvas drawing
 function endDrawing() {
     drawing = false;
-    ctx.beginPath();
+    ctx.stroke();
+    ctx.closePath();
 }
 
 // draws lines on canvas
@@ -100,18 +101,21 @@ function drawLine(x1, y1, x2, y2) {
     ctx.stroke();
 }
 
+function setCtxStyles() {
+
+}
+
 // sets line styles, calls drawLine function
 function draw(e) {
-    ctx.linecap = "round";
+    ctx.lineCap = "round";
     ctx.lineJoin = "round";
     //sets shadow blur line from html range input
     ctx.shadowBlur = document.querySelector("#blur-line").value;
-
     //sets line width from html range input
     ctx.lineWidth = document.querySelector("#line-width").value;
 
     //sets stroke color
-    if (setPsychedelic === true) {
+    if (setPsychedelic) {
         ctx.strokeStyle = setRandomColor();
         ctx.shadowColor = setRandomColor();
     } else {
@@ -151,9 +155,10 @@ function draw(e) {
         drawLine(height - prevY, prevX, height - y, x);
         drawLine(prevY, width - prevX, y, width - x);
     }
-
-    prevX = x;
-    prevY = y;
+    
+    prevX = e.offsetX || (e.touches[0].clientX - rect.left)
+    prevY = e.offsetY || (e.touches[0].clientY - rect.top)
+    
 }
 
 // function called once window is loaded
@@ -168,17 +173,19 @@ function load(e) {
   
     // handles touch events
     canvas.addEventListener("touchstart", e => {
-        startDrawing(e);
-    }, false);
+        e.preventDefault();
+        startDrawing();
+    }, {passive : false});
 
     canvas.addEventListener("touchmove", e => {
         e.preventDefault();
         draw(e);
-    }, false);
+    }, {passive : false});
 
     canvas.addEventListener("touchend", e => {
         e.preventDefault();
-    }, false);
+        endDrawing();
+    }, {passive : false});
   }
 
 // handles clicks on bottom bar
