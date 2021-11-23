@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="app.css" />
     <title>Symmetry Art</title>
   </head>
+
   <body>
+      <!-- navbar -->
     <nav class="navbar">
       <div class="nav-left">
         <a href="#" class="logo">Symmetry Art</a>
@@ -16,7 +18,8 @@
       </div>
     </nav>
 
-    <section id="main-page" class="section-top">
+    <!-- landing page -->
+    <section id="landing-page" class="section-top">
       <div id="header">
         <div id="app-description">
           <h1 class="name head">SYMMETRY ART</h1>
@@ -58,8 +61,9 @@
       </div>
     </section>
 
-    <section id="canvas" class="hidden section-top">
-      <div id="main">
+    <!-- canvas -->
+    <section id="canvas-section" class="hidden section-top">
+      <div id="canvas-container">
         <canvas class="canvas"></canvas>
 
         <div id="settings-bottom">
@@ -72,20 +76,28 @@
 
           <button id="reset" class="button-bg">Reset</button>
 
-          <button id="psychedelic" class="button-bg">psychedelic</button>
+          <button id="psychedelic" class="button-bg">Psychedelic</button>
         </div>
 
         <div id="settings-left">
-          <input type="radio" id="line-two" name="fav_language" value="2" />
+          <input 
+            type="radio" 
+            id="line-two" 
+            name="line"
+            value="2" />
             <label for="line-two">2</label><br />
            
-          <input type="radio" id="line-four" name="fav_language" value="4" />  
+          <input 
+            type="radio" 
+            id="line-four" 
+            name="line"
+            value="4" />  
           <label for="line-four">4</label><br />
            
           <input
             type="radio"
             id="line-eight"
-            name="fav_language"
+            name="line"
             value="8"
             checked
           />
@@ -93,22 +105,20 @@
         </div>
 
         <div id="settings-right">
-          <div class="label top">Width</div>
+          <div class="label top-text">Width</div>
           <input
             type="range"
             min="1"
             max="10"
             id="line-width"
-            name="line-width"
             value="2"
           />
-          <div class="label bottom">Blur</div>
+          <div class="label bottom-text">Blur</div>
           <input
             type="range"
             min="0"
             max="10"
             id="blur-line"
-            name="blur-line"
             value="0"
           />
         </div>

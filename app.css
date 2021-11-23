@@ -1,11 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Concert+One&family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;600;700&display=swap');
 
 :root {
-    --primary-color: 023047;
+    --primary-color: rgb(2, 48, 71);
     --primary-shadow: rgb(172, 164, 164);
-    --main-bg: fef9ef;
-    --main-text-color: 2b2d42;
+    --main-bg: rgb(254, 249, 239);
+    --main-text-color: #2b2d42;
 }
 
 * {
@@ -15,15 +14,12 @@
 body {
     font-family: 'Nunito', sans-serif;
     background-color: var(--main-bg);
-    color: var(--main-text-color);
-    height: 100%;
+    color: var(--primary-color);
     overflow-x: hidden;
-    overflow-y: scroll;
-    position: relative;
     margin: 0;
 }
 
-body h1, h2, h3{
+h1, h2, h3{
     position: relative;
     top: 3px;
     font-size: 1.5em;
@@ -31,16 +27,18 @@ body h1, h2, h3{
     margin-bottom: 0;
 }
 
-#main {
+/* canvas styling */
+
+#canvas-container {
     position: relative;
     left: 30%;
-    margin: 2em 2em 2em 2em;
+    margin: 2em;
     width: fit-content;
     height: 100vh;
     color: fef9ef;
 }
 
-#main .canvas {
+#canvas-container .canvas {
     border-radius: 5px;
     box-shadow: -5px 5px 15px 2px var(--primary-shadow);
     margin: auto;
@@ -54,16 +52,17 @@ body h1, h2, h3{
     justify-content: center;
     background-color: var(--primary-color);
     padding: 0.5em;
-    border-radius: 20px;
+    border-radius: 13px;
     box-shadow: -5px 5px 15px 1px var(--primary-shadow);
 }
 
+/* right-settings-div */
 #settings-right {
     flex-direction: column;
     width: 3em;
     height: 30em;
     position: relative;
-    left: 33.5em;
+    left: 33em;
     top: -64.5em;
 }
 
@@ -77,12 +76,12 @@ body h1, h2, h3{
     top: 8em;
 }
 
-#settings-right .top {
+#settings-right .top-text {
     position: relative;
     top: -9em;
 }
 
-#settings-right .bottom {
+#settings-right .bottom-text {
     position: relative;
     top: 2em;
 }
@@ -92,6 +91,7 @@ body h1, h2, h3{
     cursor: pointer;
 }
 
+/* left settings-div */
 #settings-left {
     flex-direction: column;
     width: 3em;
@@ -105,6 +105,7 @@ body h1, h2, h3{
     cursor: pointer;
 }
 
+/* bottom settings-div */
 #settings-bottom {
     position: relative;
     top: 1em;
@@ -124,7 +125,7 @@ body h1, h2, h3{
     background-color: black;
     margin: 5px;
     border-radius: 50%;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 #settings-bottom span:first-child {
@@ -140,20 +141,19 @@ body h1, h2, h3{
 }
 
 #settings-bottom button {
-    font-family: Concert One;
+    background-color: var(--main-bg);
+    color: var(--main-text-color);
+    font-family: Nunito, sans-serif;
     margin: 5px;
     padding: 4px;
-    background-color: #161b33;
-    border: 2px solid black;
+    border: 2px solid var(--main-text-color);
     border-radius: 2px;
-    color: var(--main-text-color);
     cursor: pointer;
-    background-color: var(--main-bg);
 }
 
 #settings-bottom #reset:hover {
-    background-color: rgb(199, 103, 103);
-    color: white;
+    background-color: #bf362c;
+    color: var(--main-bg);
 }
 
 #settings-bottom #psychedelic:hover, #settings-bottom #psychedelic.on  {
@@ -162,13 +162,13 @@ body h1, h2, h3{
     border-right-color: #822faf;
     border-bottom-color: #571089;
     border-left-color: #f79d65;
-    color: white;
+    color: var(--main-bg);
 }
 
 /* responsive layout */
 
 @media screen and (max-width: 900px) {
-    #main {
+    #canvas-container {
         left: 15%;
     }
 
@@ -181,25 +181,36 @@ body h1, h2, h3{
     }
 }
 
+@media screen and (max-width: 777px) {
+    #settings-right {
+        flex-direction:row;
+        width: 30em;
+        height: 3.5em;
+        position: relative;
+        left: 0.5em;
+        top: -28em;
+    }
+     
+    #settings-right input[type="range"] {
+        transform: none;
+        cursor: pointer;
+        width: 30vw;
+    }
+
+    #settings-right .top-text, #settings-right .bottom-text {
+        top: 0;
+        padding: 1em;
+    }
+
+    #settings-right #line-width, #settings-right #blur-line {
+        top: 0;
+        width: 10em;
+    }
+}
+
 @media screen and (max-width: 620px) {
 
-    #main {
-        left: 0;
-        margin: 0 auto;
-        margin-top: 2em;
-        height: fit-content;
-    }
-
-    #main .canvas {
-        height: 50vh;
-        width: 90vw;
-    }
-
-    #authors, #header, #pics {
-        display: flex;
-        flex-direction: column;
-    }
-
+    /* landing page */
     #app-description {
         margin-left: 0;
     }
@@ -224,12 +235,31 @@ body h1, h2, h3{
         margin-left: -165px;
     }
 
+    /* canvas */
+
+    #canvas-container {
+        left: 0;
+        margin: 0 auto;
+        margin-top: 2em;
+        height: fit-content;
+    }
+
+    #canvas-container .canvas {
+        height: 330px;
+        width: 330px;
+    }
+
+    #authors, #header, #pics {
+        display: flex;
+        flex-direction: column;
+    }
+
     #settings-right {
         flex-direction:row;
         width: 80vw;
         height: 2.5em;
         position: relative;
-        left: 0.5em;
+        left: 1.2em;
         top: -1.2em;
     }
      
@@ -239,49 +269,44 @@ body h1, h2, h3{
         width: 20vw;
     }
 
-    #settings-right .top, #settings-right .bottom {
+    #settings-right .top-text, #settings-right .bottom-text {
         top: 0;
         padding: 1em;
         font-size: 10px;
     }
 
-   #settings-right #line-width, #settings-right #blur-line {
+    #settings-right #line-width, #settings-right #blur-line {
        top: 0;
        width: 4em;
-   }
+    }
 
-   #settings-bottom {
+    #settings-bottom {
         width: 80vw;
-        left: 0.5em;
+        left: 2em;
         font-size: 10px;
-   }
+    }
 
-   #settings-bottom button {
+    #settings-bottom button {
        font-size: 10px;
-   }
+    }
 
-   #settings-left {
+    #settings-left {
         flex-direction: row;
         width: 80vw;
         height: 2.5em;
         position: relative;
         top: 4.4em;
-        left: 0.5em;
+        left: 1.2em;
     }
 }
 
   /* navbar */
 
 .navbar {
-    z-index: 1;
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: 023047;
+    background-color: var(--primary-color);
+    box-shadow: 0 5px 10px 0 var(--primary-shadow);
     overflow: hidden;
-    margin: 0;
-    box-shadow: 0 0 25px 0 black;
+    position: sticky;
   }
 
 .nav-left a, .nav-right a {
@@ -289,7 +314,7 @@ body h1, h2, h3{
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 1.2em;
   }
 
 .nav-left a {
@@ -301,8 +326,8 @@ body h1, h2, h3{
   }
 
 .navbar a:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: rgb(222, 217, 209);
+    color: var(--primary-color);
   }
 
 /* handle mainpage */
@@ -324,14 +349,14 @@ body h1, h2, h3{
 }
 
 .author {
-    color: fef9ef;
+    color: var(--main-bg);
     display: flex;
     flex-direction: column;
     text-align: center;
     width: 300px;
     margin: 0 auto;
     margin-bottom: 2em;
-    background-color: 023047;
+    background-color: var(--primary-color);
     border-radius: .5em;
     box-shadow: 0 0 10px 0 rgb(68, 67, 70);
 }
