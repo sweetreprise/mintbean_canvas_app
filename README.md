@@ -10,3 +10,17 @@ Symmetry Art is an app where a user can create their mezmerising piece of art. T
 ## User Flow
 ![diagram](/assets/diagram.PNG)
 
+## Authors
+
+### **Maria Acuna**
+
+Linkedin: https://www.linkedin.com/in/maria-acuna-ab0b09131/
+
+Contact: maria.pv.acuna@gmail.com
+
+### **Boonyawee Prasertsiripond (Kratai)**
+
+Linkedin: https://www.linkedin.com/in/boonyawee-prasertsiripond/
+
+Contact: krataias65@gmail.com
+
