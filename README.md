@@ -7,5 +7,6 @@ Symmetry Art is an app where a user can create their mezmerising piece of art. T
 - HTML
 - CSS
 
-
+## User Flow
+![diagram](/assets/diagram.PNG)
 
