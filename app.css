@@ -142,7 +142,7 @@ h1, h2, h3{
 }
 
 #settings-bottom button {
-    background-color: var(--main-bg);
+    background-color: white;
     color: var(--main-text-color);
     font-family: Nunito, sans-serif;
     margin: 5px;
@@ -152,7 +152,7 @@ h1, h2, h3{
     cursor: pointer;
 }
 
-#settings-bottom #reset:hover {
+#settings-bottom #undo:hover {
     background-color: #bf362c;
     color: var(--main-bg);
 }
@@ -216,24 +216,26 @@ h1, h2, h3{
 @media screen and (max-width: 620px) {
 
     /* landing page */
-    #app-description {
+    #landing-page .app-description {
         margin-left: 0;
     }
 
-    #pics {
-        margin-top: 100px;
+    .pics {
+        margin-top: 0;
     }
 
-    .sample {
+    h2.name.head {
+        position: relative;
+        left: -3em;
+        text-align: center;
+    }
+
+    img.sample {
         margin-left: 2.5em;
     }
 
     #responsive-header {
         margin-top: 100px;
-    }
-
-    #header {
-        margin-top: 0;
     }
 
     .line-height {
@@ -254,7 +256,7 @@ h1, h2, h3{
         width: 330px;
     }
 
-    #authors, #header, #pics {
+    #authors, #landing-page .header, .pics {
         display: flex;
         flex-direction: column;
     }
@@ -340,6 +342,11 @@ h1, h2, h3{
 
 /* handle mainpage */
 
+#main-container {
+    display: flex;
+    flex-direction: column;
+}
+
 #authors {
     display: flex;
     justify-content: space-around;
@@ -387,7 +394,7 @@ h1, h2, h3{
     font-weight: Bold;
 }
 
-#pics {
+.pics {
     display: flex;
     justify-content: center;
     margin-right: 100px;
@@ -399,7 +406,7 @@ h1, h2, h3{
     margin-right: 1.5em;
 }
 
-#app-description {
+#landing-page .app-description {
     text-align: left;
     margin-bottom: 2em;
     margin-left: 200px;
@@ -410,7 +417,7 @@ h1, h2, h3{
     text-shadow: 2px 2px black;
 }
 
-#header {
+#landing-page .header {
     display: flex;
     justify-content: space-around;
     margin-top: 6em;
