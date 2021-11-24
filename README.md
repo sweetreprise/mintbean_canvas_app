@@ -1,6 +1,6 @@
 # Symmetry Art
 
-Symmetry Art is an app where users are able to create symmetrical art pieces. This project was inspired by the mandala. It represents the spiritual journey. We hope users will enjoy drawing unique patterns that inspire.
+Symmetry Art is an app where users are able to create symmetrical art pieces. This project was inspired by the mandala. It represents the _**spiritual journey**_. We hope users will enjoy drawing unique patterns that inspire. Try it out [here](https://sweetreprise.github.io/mintbean_canvas_app/)!
 
 ## Customization features:
 - change canvas background
@@ -8,8 +8,10 @@ Symmetry Art is an app where users are able to create symmetrical art pieces. Th
 - select brush color
 - select brush width
 - add blur effect
-- psychedelic button for randomly generated colorful brush lines
+- _psychedelic_ button for randomly generated colorful brush lines
 - undo button
+
+
 
 ## Interface
 ![interface](assets/canvas_interface.jpg)
