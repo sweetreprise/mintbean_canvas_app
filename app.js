@@ -1,5 +1,7 @@
 let drawing, setPsychedelic = false;
 let canvas, ctx, prevX, prevY, numLines;
+let restore_array = [];
+let index = -1;
 
 const container = document.getElementById("settings-bottom");
 const psyBtn = document.getElementById("psychedelic");
@@ -9,9 +11,6 @@ const canvasLink = document.querySelectorAll(".canvas-link");
 const logo = document.querySelector(".logo");
 const lines = document.querySelectorAll("input[type='radio']");
 const saveBtn = document.getElementById("save");
-
-let restore_array = [];
-let index = -1;
 
 // * --------- GETS CANVAS VALUES / SETTINGS --------- * //
 // gets dimensions of the canvas
@@ -98,15 +97,14 @@ for (link of canvasLink) {
     link.addEventListener("click", () => {
         hidePageComponents(landingPage);
         showPageComponents(canvasSection);
-        reset();
     });
 }
 
 // event listener for landing page / logo
 logo.addEventListener("click", () => {
-    reset();
     hidePageComponents(canvasSection);
     showPageComponents(landingPage);
+    reset();
 });
 
 
@@ -194,7 +192,6 @@ function draw(e) {
 function load(e) {
     canvas = document.querySelector(".canvas");
     ctx = canvas.getContext("2d");
-    reset();
   
     // handles mouse events
     canvas.addEventListener("mousedown", startDrawing);
@@ -233,7 +230,7 @@ function handleSettingsClick(e) {
     ctx.fillRect(0, 0, 500, 500);
   }
 
-  // handles reset
+  // handles undo button
   if (id === "undo") {
     undo_last();
   }

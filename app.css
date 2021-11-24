@@ -152,6 +152,11 @@ h1, h2, h3{
     cursor: pointer;
 }
 
+#settings-bottom #save:hover {
+    background-color: #3c7536;
+    color: var(--main-bg);
+}
+
 #settings-bottom #undo:hover {
     background-color: #bf362c;
     color: var(--main-bg);
