@@ -342,11 +342,6 @@ h1, h2, h3{
 
 /* handle mainpage */
 
-#main-container {
-    display: flex;
-    flex-direction: column;
-}
-
 #authors {
     display: flex;
     justify-content: space-around;
@@ -378,7 +373,6 @@ h1, h2, h3{
 
 .author-description {
     flex-wrap: wrap;
-    margin: 30px;
     width: 150px;
     margin: 0 auto;
     margin-top: 30px;
@@ -387,6 +381,11 @@ h1, h2, h3{
 
 .section-top {
     margin-top: 2em;
+}
+
+.app-description h1 {
+    font-size: 3em;
+    font-weight: bold;
 }
 
 .name {
