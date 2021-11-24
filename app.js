@@ -9,6 +9,9 @@ const canvasLink = document.querySelectorAll(".canvas-link");
 const logo = document.querySelector(".logo");
 const lines = document.querySelectorAll("input[type='radio']");
 
+let restore_array = [];
+let index = -1;
+
 // * --------- GETS CANVAS VALUES / SETTINGS --------- * //
 // gets dimensions of the canvas
 function getCanvasDimensions() {
@@ -52,6 +55,24 @@ function getLines() {
     return numLines
 }
 
+// undos last drawn lines
+function undo_last() {
+    if (index <= 0) {
+        reset();
+    } else {
+        index -=1;
+        restore_array.pop();
+        ctx.putImageData(restore_array[index], 0, 0);
+    }
+}
+
+// resets canvas to white background
+function reset() {
+    ctx.fillStyle = "white"
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+
 // * --------- HANDLES SHOWING / HIDING PAGE COMPONENTS --------- * //
 // hides page components
 function hidePageComponents(component) {
@@ -68,12 +89,13 @@ for (link of canvasLink) {
     link.addEventListener("click", () => {
         hidePageComponents(landingPage);
         showPageComponents(canvasSection);
+        reset();
     });
 }
 
 // event listener for landing page / logo
 logo.addEventListener("click", () => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    reset();
     hidePageComponents(canvasSection);
     showPageComponents(landingPage);
 });
@@ -83,14 +105,16 @@ logo.addEventListener("click", () => {
  // start canvas drawing
 function startDrawing(e) {
     drawing = true;
-    ctx.beginPath();
 }
 
 // ends canvas drawing
-function endDrawing() {
-    drawing = false;
+function endDrawing(e) {
     ctx.stroke();
     ctx.closePath();
+    drawing = false;
+
+    restore_array.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+    index += 1;
 }
 
 // draws lines on canvas
@@ -101,9 +125,6 @@ function drawLine(x1, y1, x2, y2) {
     ctx.stroke();
 }
 
-function setCtxStyles() {
-
-}
 
 // sets line styles, calls drawLine function
 function draw(e) {
@@ -156,15 +177,15 @@ function draw(e) {
         drawLine(prevY, width - prevX, y, width - x);
     }
     
-    prevX = e.offsetX || (e.touches[0].clientX - rect.left)
-    prevY = e.offsetY || (e.touches[0].clientY - rect.top)
-    
+    prevX = x
+    prevY = y
 }
 
 // function called once window is loaded
 function load(e) {
     canvas = document.querySelector(".canvas");
     ctx = canvas.getContext("2d");
+    reset();
   
     // handles mouse events
     canvas.addEventListener("mousedown", startDrawing);
@@ -204,8 +225,8 @@ function handleSettingsClick(e) {
   }
 
   // handles reset
-  if (id === "reset") {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  if (id === "undo") {
+    undo_last();
   }
 
   // handles psychedelic button click
