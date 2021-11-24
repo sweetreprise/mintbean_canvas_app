@@ -1,14 +1,27 @@
 # Symmetry Art
 
-Symmetry Art is an app where a user can create their mezmerising piece of art. The user can select the background color of their canvas, select whether they want a colored brush or psycheledic brush, select the size of his/her brush and select their brush shadow. Not only the user can customize their brush and canvas but they can also choose the number of lines for their symmetry art.
+Symmetry Art is an app where users are able to create symmetrical art pieces. This project was inspired by the mandala. It represents the spiritual journey. We hope users will enjoy drawing unique patterns that inspire.
 
-## Technologies used
-- JavaScript
-- HTML
-- CSS
+## Customization features:
+- change canvas background
+- select number of lines being drawn
+- select brush color
+- select brush width
+- add blur effect
+- psychedelic button for randomly generated colorful brush lines
+- undo button
+
+## Interface
+![interface](assets/canvas_interface.jpg)
+
 
 ## User Flow
 ![diagram](/assets/diagram.PNG)
+
+## Technologies used:
+- JavaScript
+- HTML
+- CSS
 
 ## Authors
 
