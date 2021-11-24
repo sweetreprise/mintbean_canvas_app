@@ -8,6 +8,7 @@ const landingPage = document.getElementById("landing-page");
 const canvasLink = document.querySelectorAll(".canvas-link");
 const logo = document.querySelector(".logo");
 const lines = document.querySelectorAll("input[type='radio']");
+const saveBtn = document.getElementById("save");
 
 let restore_array = [];
 let index = -1;
@@ -64,6 +65,14 @@ function undo_last() {
         restore_array.pop();
         ctx.putImageData(restore_array[index], 0, 0);
     }
+}
+
+function saveImage(){
+    let data = canvas.toDataURL("imag/png");
+    let a = document.createElement("a");
+    a.href = data;
+    a.download = "canvas.png";
+    a.click();
 }
 
 // resets canvas to white background
@@ -232,6 +241,10 @@ function handleSettingsClick(e) {
   // handles psychedelic button click
   if (id === "psychedelic") {
     switchPsychMode();
+  }
+
+  if (id === "save") {
+      saveImage();
   }
 }
 
