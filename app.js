@@ -67,7 +67,7 @@ function undo_last() {
     }
 }
 
-function saveImage(){
+function saveImage() {
     let data = canvas.toDataURL("imag/png");
     let a = document.createElement("a");
     a.href = data;

@@ -242,6 +242,12 @@ h1, h2, h3{
         margin-left: -165px;
     }
 
+    #demo-vid {
+        width: 90vw;
+        height: 50vh;
+        margin-left: 1em;
+    }
+
     /* canvas */
 
     #canvas-container {
