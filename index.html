@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -20,56 +21,58 @@
 
     <!-- landing page -->
     <section id="landing-page" class="section-top">
-      <div id="header">
-        <div id="app-description">
-          <h1 class="name head">SYMMETRY ART</h1>
-          <h2 class="line-height">
-            There is art in balance, art in harmony.
-            Create colorful symmetrical patterns.
-          </h2>
-          <h2 class="line-height">
-            Go to your <a href="#" class="canvas-link">canvas</a>
-          </h2>
-        </div>
-        <div id="pics">
-          <img src="assets/sample1.PNG" alt="sample1" class="sample" />
-          <img src="assets/sample2.PNG" alt="sample1" class="sample" />
-        </div>
-      </div>
+        <div id="main-container">
+            <div class="header">
+                <div class="app-description">
+                  <h2 class="name head">SYMMETRY ART</h1>
+                  <h3 class="line-height">
+                    There is art in balance, art in harmony.
+                    Create colorful symmetrical patterns.
+                  </h2>
+                  <h2 class="line-height">
+                    Go to your <a href="#" class="canvas-link">canvas</a>
+                  </h2>
+                </div>
+                <div class="pics">
+                  <img src="assets/sample1.PNG" alt="sample1" class="sample" />
+                  <!-- <img src="assets/sample2.PNG" alt="sample1" class="sample" /> -->
+                </div>
+            </div>
 
-      <div id="header">
-        <div id="app-description">
-          <h1 class="name head">Create</h1>
-          <h2 class="line-height">
-            Pick up your mouse/finger and start drawing - watch the symmetry blossom.
-          </h2>
+              <div class="header">
+                <div class="app-description">
+                  <h2 class="name head">Create</h1>
+                  <h3 class="line-height">
+                    Pick up your mouse/finger and start drawing - watch the symmetry blossom.
+                  </h2>
+                </div>
+                <div class="pics">
+                  <img src="assets/canvas_gif_2.gif" alt="" class="sample">
+                </div>
+              </div>
+        
+              <div class="header">
+                <div class="app-description">
+                    <h2 class="name head">Customize</h1>
+                        <h3 class="line-height">
+                            Add blur effects, change your stroke color and size, even play with the 
+                            number of strokes! Choose between a white or black canvas.</h3>
+                    </h2>
+                </div>
+                <div class="pics">
+                    <img src="assets/canvas_gif_3.gif" alt="" class="sample">
+                </div>
+              </div>
+        
+              <div class="header">
+                <div class="app-description">
+                  <h2 class="name head">Watch demo</h1>
+                </div>
+                <div class="pics">
+                  embedded video here
+                </div>
+              </div>
         </div>
-        <div id="pics">
-          .gif goes here
-        </div>
-      </div>
-
-      <div id="header">
-        <div id="app-description">
-          <h1 class="name head">Customize</h1>
-          <h2 class="line-height">
-            Add blur effects, change your stroke color and size, even play with the 
-            number of strokes! Oh hey, you can change your canvas color, too.
-          </h2>
-        </div>
-        <div id="pics">
-          .gif goes here
-        </div>
-      </div>
-
-      <div id="header">
-        <div id="app-description">
-          <h1 class="name head">Watch demo</h1>
-        </div>
-        <div id="pics">
-          embedded video here
-        </div>
-      </div>
 
       <h3 class="author-header" id="responsive-header">Authors</h3>
       <div id="authors">
@@ -80,7 +83,7 @@
             alt="Maria Acuna"
             class="profile-pic"
           />
-          <p class="author-description">description</p>
+          <p class="author-description">A software engineer whose fascination is held by elegant design. Experienced in JavaScript and Python. </p>
           <div class="contact-links">
             <a href="https://github.com/sweetreprise"><img class="github" src="assets/github.png" alt="github"></a>
             <a href="mailto: maria.pv.acuna@gmail.com"
@@ -97,6 +100,8 @@
             /></a>
           </div>
         </div>
+
+
         <div class="author">
           <p class="name">Boonyawee Prasertsiripond</p>
           <!--add linkedin link-->
@@ -134,14 +139,14 @@
         <canvas class="canvas"></canvas>
 
         <div id="settings-bottom">
-          Background:
+          Clear canvas:
           <span class="canvas-bg" data-color="#fff">&nbsp;</span>
           <span class="canvas-bg" data-color="#000">&nbsp;</span>
 
           <label for="brush-color">Line: </label>
           <input type="color" id="brush-color" />
 
-          <button id="reset" class="button-bg">Reset</button>
+          <button id="undo" class="button-bg">Undo</button>
 
           <button id="psychedelic" class="button-bg">Psychedelic</button>
         </div>
