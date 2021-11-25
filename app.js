@@ -60,7 +60,7 @@ function undo_last() {
     if (index <= 0) {
         reset();
     } else {
-        index -=1;
+        index -= 1;
         restore_array.pop();
         ctx.putImageData(restore_array[index], 0, 0);
     }
@@ -76,6 +76,8 @@ function saveImage() {
 
 // resets canvas to white background
 function reset() {
+    restore_array = [];
+    index = -1;
     ctx.fillStyle = "white"
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -183,7 +185,6 @@ function draw(e) {
         drawLine(height - prevY, prevX, height - y, x);
         drawLine(prevY, width - prevX, y, width - x);
     }
-    
     prevX = x
     prevY = y
 }
@@ -240,6 +241,7 @@ function handleSettingsClick(e) {
     switchPsychMode();
   }
 
+  //handles save button
   if (id === "save") {
       saveImage();
   }
